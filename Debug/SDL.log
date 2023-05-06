@@ -1,0 +1,5 @@
+﻿  main.cpp
+D:\★다혜 대학교\140_c++\6. SDL\main.cpp(31,12): warning C4553: '==': result of expression not used; did you intend '='?
+D:\★다혜 대학교\140_c++\6. SDL\main.cpp(52,2): warning C4551: function call missing argument list
+  SDL.vcxproj -> D:\★다혜 대학교\140_c++\6. SDL\Debug\SDL.exe
+  0 File(s) copied
