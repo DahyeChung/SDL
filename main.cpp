@@ -14,6 +14,11 @@ int main()
 							SDL_RENDERER_ACCELERATED 
 						||  SDL_RENDERER_PRESENTVSYNC);
 
+	SDL_Surface* pBmp = SDL_LoadBMP("door.bmp");
+	SDL_Texture* pTexture = SDL_CreateTextureFromSurface(pRenderer, pBmp);
+	SDL_FreeSurface(pBmp); //delete bmp ;
+
+
 	//게임오버 까지 대기 
 	bool isDone = false;
 
@@ -36,19 +41,29 @@ int main()
 
 				switch (KeyCode)
 				{
-					case SDLK_ESCAPE: //esc 누르면 게임 quit 작동
+					case SDLK_ESCAPE: //esc -> quit 
 					isDone = true; 
 					break;
 				}
 			}
 		}
+		SDL_RenderClear(pRenderer); //paint black
+
+		//Draw background
+		{
+			SDL_Rect srcRect = { 0, 0, 1280, 720 }; //사용이미지 픽셀
+			SDL_Rect destRect = { 0,0, 1280, 720 }; //윈도우 창 크기 
+			SDL_RenderCopy(pRenderer, pTexture, &srcRect, &destRect);
+		}
+
+		SDL_RenderPresent(pRenderer); //actual img display
 	}
+
+
+	SDL_DestroyTexture(pTexture);
 
 	SDL_DestroyRenderer(pRenderer); //렌더시키고
 	SDL_DestroyWindow(pWindow); //삭제시
-
-
-	//Quit an SDL Program
-	SDL_Quit;
+	SDL_Quit;//Quit an SDL Program
 	return 0;
 }
