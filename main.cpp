@@ -19,7 +19,7 @@ int main()
 	SDL_FreeSurface(pBmp); //delete bmp ;
 
 	//Enemy img
-	SDL_Surface* pBmp2 = SDL_LoadBMP("skeleton.bmp");
+	SDL_Surface* pBmp2 = SDL_LoadBMP("Sprites\\Backgrounds\\bmp\\mainHall.bmp");
 	SDL_SetColorKey(pBmp2, SDL_TRUE, SDL_MapRGB(pBmp2->format, 0, 255, 0)); //RGB 삭제할 배경색 <nullptr>
 	SDL_Texture* pTexture2 = SDL_CreateTextureFromSurface(pRenderer, pBmp2);
 	SDL_FreeSurface(pBmp2); //delete bmp ;
