@@ -28,6 +28,8 @@ int main()
 	bool movingUp = true;
 	int enemyX = 200;
 	int enemyY = 500;
+	int enemyMaxY = 102;
+	int enemyMinY= 1000;
 
 	//게임오버 까지 대기 
 	bool isDone = false;
@@ -64,7 +66,7 @@ int main()
 			if (movingUp) //해골 애니메이션
 			{
 				enemyY--; //y축 감소 == 다운 
-				if (enemyY < 302) // 최저 위치 도달 시 
+				if (enemyY < enemyMaxY) // 최저 위치 도달 시 
 				{
 					movingUp = false; //다시 업 
 				}
@@ -72,13 +74,12 @@ int main()
 			else
 			{
 				enemyY++; //y축 증가 == 업
-				if (enemyY < 500) // 최고 위치 도달 시 
+				if (enemyY > enemyMinY) // 최고 위치 도달 시 
 				{
 					movingUp = true; //다시 다운 
 				}
 			}
 		}
-
 		//RenderGame
 		{
 			SDL_RenderClear(pRenderer); //paint black
