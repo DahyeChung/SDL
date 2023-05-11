@@ -28,7 +28,7 @@ int main()
     // Set initial state of enemy
     bool movingLeft = true;
     int enemyX = 200;
-    int enemyY = 500;
+    int enemyY = 10;
     int enemyMinX = 400;
     int enemyMaxX = 450;
 
