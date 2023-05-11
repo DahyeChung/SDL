@@ -7,7 +7,7 @@ int main()
 
 	SDL_Window* pWindow = SDL_CreateWindow("Dahye's Game",
 		100, 100, //Display x,y pixel position 우측 100 높이 100에 창 만들기
-		680, 480, //Pixel width * height 넓이와 높이 지정
+		1280, 720, //Pixel width * height 넓이와 높이 지정
 		SDL_WINDOW_SHOWN); // 윈도우 보여줘~! 
 
 	SDL_Renderer* pRenderer = SDL_CreateRenderer(pWindow, -1,
@@ -19,7 +19,7 @@ int main()
 	SDL_FreeSurface(pBmp); //delete bmp ;
 
 	//Enemy img
-	SDL_Surface* pBmp2 = SDL_LoadBMP("Sprites\\Backgrounds\\bmp\\mainHall.bmp");
+	SDL_Surface* pBmp2 = SDL_LoadBMP("skeleton.bmp");
 	SDL_SetColorKey(pBmp2, SDL_TRUE, SDL_MapRGB(pBmp2->format, 0, 255, 0)); //RGB 삭제할 배경색 <nullptr>
 	SDL_Texture* pTexture2 = SDL_CreateTextureFromSurface(pRenderer, pBmp2);
 	SDL_FreeSurface(pBmp2); //delete bmp ;
@@ -85,8 +85,8 @@ int main()
 
 			//Draw background
 			{
-				SDL_Rect srcRect = { 0, 0, 680, 480, }; //사용이미지 픽셀
-				SDL_Rect destRect = { 0,0, 680, 480, }; //윈도우 창 크기 
+				SDL_Rect srcRect = { 0, 0, 1280, 720, }; //사용이미지 픽셀
+				SDL_Rect destRect = { 0,0, 1280, 720, }; //윈도우 창 크기 
 				SDL_RenderCopy(pRenderer, pTexture, &srcRect, &destRect);
 			}
 
